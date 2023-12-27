@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트05 - 연산자</title>
+</head>
+<body>
+<script>
+var x=20, y=30;
+//산술 연산
+document.write("<strong>산술연산<strong><br>x+y="+(x+y)+"<br>");
+document.write("x-y="+(x-y)+"<br>");
+document.write("x*y="+(x*y)+"<br>");
+document.write("y/x="+(y/x)+"<br>");
+document.write("y%x="+(y%x)+"<br><br>");
+
+//대입 연산자
+x+=2;
+document.write("<strong>대입연산<strong><br>x+=2 : "+(x)+"<br>");
+x-=2;
+document.write("x-=2 : "+(x)+"<br>");
+x*=2;
+document.write("x*=2 : "+(x)+"<br>");
+x/=2;
+document.write("x/=2 : "+(x)+"<br>");
+x%=2;
+document.write("x%=2 : "+(x)+"<br><br>");
+
+//증감 연산자
+document.write("<strong>증감연산<strong><br>x++ : "+(x++)+"<br>");
+document.write("++x : "+(++x)+"<br>");
+document.write("x-- : "+(x--)+"<br>");
+document.write("--x : "+(--x)+"<br><br>");
+
+//비교 연산자
+document.write("<strong>비교연산<strong><br>x>y : "+(x>y)+"<br>");
+document.write("x<y : "+(x<y)+"<br>");
+document.write("x>=y : "+(x>=y)+"<br>");
+document.write("x<=y : "+(x<=y)+"<br>");
+document.write("x==y : "+(x==y)+"<br>");
+document.write("x!=y : "+(x!=y)+"<br>");
+document.write("x==y : "+(x===y)+"<br>");  //타입과 값이 모두 일치
+document.write("x==y : "+(x!==y)+"<br><br>");  //타입 또는 값이 다르면
+
+//논리 연산자
+document.write("<strong>논리연산<strong><br> x&lt;y && y==20 : "+(x>y && y==20)+"<br>");
+document.write("x&lt;y &#124;&#124; y==20 : "+(x<y || y==20)+"<br>");
+document.write("!(x&lt;y) : "+(!(x<y))+"<br><br>");
+
+//비트 연산자
+document.write("<strong>비트연산<strong><br> x & y : "+(x & y)+"<br>");
+document.write("x &#124; y : "+(x | y)+"<br>");
+document.write("x ^ y : "+(x ^ y)+"<br>");
+document.write("y &gt;&gt; 2 : "+(y >> 2)+"<br>");
+document.write("y &lt;&lt; 2 : "+(y << 2)+"<br>");
+document.write("~y : "+(~x)+"<br><br>");
+
+var a = (x>y) ? x : y;  
+document.write("<strong>삼항 연산자</strong> -> (x>y) ? x : y => "+a+"<br><br>");
+
+var a = typeof "김기태";
+document.write(a);
+document.write("<br>");
+var a = typeof 1004;
+document.write(a);
+document.write("<br>");
+var a = typeof 6.28;
+document.write(a);
+document.write("<br>");
+</script>
+</body>
+</html>

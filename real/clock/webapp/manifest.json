@@ -1,0 +1,13 @@
+{
+    "name":"Wall Clock",
+    "description":"Wall Clock WebApp",
+    "version":"1.0",
+    "app":{
+        "background":{
+            "scripts":["background.js"]
+        },
+        "persistent": true
+    },
+    "icons":{"16":"clock_ico-16.png","128":"clock_ico-128.png"},
+    "permissions": ["background", "https://*/*", "http://*/*"]
+}

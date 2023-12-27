@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 10 - BOM 객체</title>
+</head>
+<body>
+    <!-- window, screen, location, history, navigator -->
+    <button type="button" id="btn1" onclick="opener1()">새 창으로</button><br><br>
+    <select name="sel1" id="sel1" onchange="opener2()">
+        <option value="" selected>선택안함</option>
+        <option value="https://www.naver.com">네이버</option>
+        <option value="https://www.daum.net">다음</option>
+        <option value="https://www.google.com">구글</option>
+    </select><br><br>
+    <button type="button" id="btn2" onclick="opener3()">자바스크립트04</button><br><br>
+    <button type="button" id="btn3" onclick="opener4()">다음으로</button><br><br>
+    <button type="button" id="btn4" onclick="opener5()">구글로</button><br><br>
+    <button type="button" id="btn5" onclick="movingBack()">뒤로</button><br><br>
+    <button type="button" id="btn6" onclick="movingFront()">앞으로</button><br><br>
+    <button type="button" id="btn7" onclick="movingTwoStep()">2단계 이전으로</button><br><br>
+    <script>
+    document.write("<h2>Window 객체</h2>");    
+    for(var key in window){
+        document.write("<br>"+key+" : "+window[key]);
+    }    
+    document.write("<hr>");    
+    document.write("<h2>screen 객체</h2>");    
+    for(var key in screen){
+        document.write("<br>"+key+" : "+screen[key]);
+    }    
+    document.write("<hr>");    
+    document.write("<h2>location 객체</h2>");    
+    for(var key in location){
+        document.write("<br>"+key+" : "+location[key]);
+    }    
+    document.write("<hr>");    
+    document.write("<h2>history 객체</h2>");    
+    for(var key in history){
+        document.write("<br>"+key+" : "+history[key]);
+    }    
+    document.write("<hr>");    
+    document.write("<h2>navigator 객체</h2>");    
+    for(var key in navigator){
+        document.write("<br>"+key+" : "+navigator[key]);
+    }    
+
+    var win1, win2, win3;
+    function opener1(){ //window.open("url", "창이름 또는 타겟", "옵션리스트");
+        win1 = window.open("https://www.naver.com","win1","width=400, height=300, top=100, left=300, scrollbars=no, menubar=no, status=no, toolbar=no, location=no");
+    }
+    /* 자바스크립트만으로 웹앱을 만들고자 할 경우  
+    document.getElementById("btn1").addEventListener("click", function(){
+        opener1();
+    }); */
+    var opener2 = function(){
+        var sel = document.getElementById("sel1");
+        if(sel.value!=""){
+            //location.href = sel.value; - 현재 창에
+            win2 = window.open(sel.value,"win1","width=400, height=300, top=100, left=300, scrollbars=no, menubar=no, status=no, toolbar=no, location=no"); //새 창에
+        }
+    }
+    var opener3 = function(){
+        //location.href = "javascript11.html"; //현재 창에
+        win3 = window.open("javascript11.html","win3","width=900, height=600, top=100, left=300, scrollbars=no, menubar=no, status=no, toolbar=no, location=no"); //새 창에
+    }
+    function opener4(){
+        location.replace("https://www.daum.net");
+    }
+    function opener5(){
+        location.assign("https://www.google.com");
+    }
+    var movingBack = function() {
+        history.back(); //열어본 페이지 목록에서 이전 페이지의 url로 이동
+    }
+    var movingFront = function(){
+        history.forward(); //다음 페이지로
+    }
+    var movingTwoStep = function(){
+        history.go(-2); //2단계 이전 페이지로
+    }
+    </script>
+</body>
+</html>

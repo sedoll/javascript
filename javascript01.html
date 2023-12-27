@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트01 - 변수와 데이터 입출력</title>
+    <script>
+    //한 줄 각주
+    /*
+    여러 줄의
+    각주
+    처리
+    */    
+    var a = "김기태";       //변수 선언과 초기화(할당)
+    let b = "유광현";       //let의 변수 선언은 재선언이 불가하나 값은 언제든지 변경가능하다.
+    const c = "남송윤";     //const의 변수 선언은 상수 선언이므로 재선언이 불가능하고, 값도 변경할 수 없다.
+    document.write("<h1>당신의 이름은 "+a+"입니다.</h1>");  //문서에 출력
+    var a = "김연정";       //var의 변수 선언은 언제든지 재선언이 가능하고, 값도 필요한 시기에 변경할 수 있음
+    b = "김지훈";  
+    //c = "김지은";         
+    </script>
+</head>
+<body>
+    <div id="print"></div>
+    <div class="data">data1</div>
+    <div class="data">data2</div>
+    <div class="data">data3</div>
+    <a href=""></a><a href=""></a><a href=""></a>
+    <div id="num1">50</div>
+    <div id="num2">150</div>
+    <div id="result"></div>
+    <div id="name"></div>
+    <script>
+    document.write("<div id='box1'>박스</div>");
+    document.getElementById("print").innerHTML = "<h2>프린트 영역</h2>";
+    document.getElementsByClassName("data")[0].innerHTML = "데이터1"; 
+    document.getElementsByClassName("data")[1].innerHTML = "데이터2";
+    document.getElementsByClassName("data")[2].innerHTML = "데이터3";
+    document.getElementsByTagName("a")[0].innerHTML = "링크1";
+    document.getElementsByTagName("a")[1].innerHTML = "링크2";
+    document.getElementsByTagName("a")[2].innerHTML = "링크3";
+    var num1 = parseInt(document.getElementById("num1").innerHTML); 
+    var num2 = parseInt(document.getElementById("num2").innerHTML); 
+    document.getElementById("result").innerHTML = num1+num2;
+    document.getElementById("name").innerHTML = c;
+    </script>
+    <noscript>
+    이 브라우저는 자바스크립트가 지원되지 않습니다.
+    </noscript>
+</body>
+</html>

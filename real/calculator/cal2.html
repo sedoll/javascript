@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+    <meta name="author" content="kim">
+    <style>
+    @font-face {
+        font-family: "digital";
+        src: url("digital-7.ttf");
+    }    
+    @font-face {
+        font-family: "digitalix";
+        src: url("digitalix.ttf");
+    }    
+    </style>
+<style>
+ul { list-style: none; }    
+.tit { font-size: 32px; text-align:center; }
+.cal_fr { width: 420px;  margin: 20px auto; padding:10px; background: #4d4d53; 
+border-radius:15px; height: 500px; }
+.cal_fr li { background: #4d4d53; padding-right:5px; float:left;  text-align: center; 
+    padding-top: 5px;  }
+.cal_fr li > input#result {   border: none;  background: #333; color: white;
+  text-align:right;  font-size:90px; display:block;  width: 411px; 
+  height:90px;
+  font-family:"digital", sans-serif; }
+.cal_fr li > .btn {   display:block; height:inherit;  color:#333; 
+    font-size:36px;  border: none; background-color:#323338; width:100px; height: 75px; 
+  line-height: 75px; text-align: center; border-radius:9px; color:#ddd; cursor:pointer;  }
+.cal_fr li #result_btn { background-color: deeppink; } 
+.cal_fr li > .btn:hover {   background: #999; }
+.cal_fr li > .btn.col2 { width: 205px; }
+.cal_fr li:nth-child(4n+1) > .btn { 	background:#52e6e6; color:white;  }
+</style>	
+</head>
+<body>
+<div class="wrap">
+    <h2 class="tit">계산기</h2>
+    <ul class="cal_fr">
+        <li class="full_wd">
+            <input type="text" id="result" value="0">
+        </li>  
+        <li><input type="button" class="btn" value="7"></li>
+        <li><input type="button" class="btn" value="8"></li>
+        <li><input type="button" class="btn" value="9"></li>
+        <li><input type="button" class="btn" value="+"></li>
+        <li><input type="button" class="btn" value="4"></li>
+        <li><input type="button" class="btn" value="5"></li>
+        <li><input type="button" class="btn" value="6"></li>
+        <li><input type="button" class="btn" value="-"></li>
+        <li><input type="button" class="btn" value="1"></li>
+        <li><input type="button" class="btn" value="2"></li>
+        <li><input type="button" class="btn" value="3"></li>
+        <li><input type="button" class="btn" value="*"></li>
+        <li><input type="button" class="btn col2" value="0" id="zero_btn"></li>
+        <li><input type="button" class="btn" value="%"></li>
+        <li><input type="button" class="btn" value="/"></li>
+        <li><input type="button" class="btn col2" id="cls_btn" value="clear" ></li>
+        <li><input type="button" class="btn col2" id="result_btn" value="=" ></li>    
+    </ul>
+</div>
+<script>
+var result = document.getElementById('result');
+var input = document.getElementsByTagName('input');
+var cls_btn = document.getElementById('cls_btn');
+var result_btn = document.getElementById('result_btn');
+// 계산기 초기화(clear)
+function clr(){  result.value = 0;   }  
+function calc(data){   // 계산기 입력 처리 함수
+  if(result.value == 0){ result.value = ''; } // 입력이 들어가면 0을 지움
+  result.value += data; // 입력값을 결과창에 출력
+}
+function my_result(){ // 계산 결과 처리 함수
+  var calc = eval(result.value);  
+  result.value = calc;   //결과창에 표시
+}
+for(var i = 0; i < input.length;i++){  // 숫자 및 사칙연산 버튼
+  if(input[i].value != '=' && input[i].value !='clear'){  // 숫자와 사칙 연산자만 입력 처리
+    input[i].addEventListener("click", function(){      calc(this.value);    });
+  } // end if
+} // end for
+cls_btn.addEventListener("click", function(){  clr(); });  // 초기화  버튼
+result_btn.addEventListener("click", function(){  // 결과 버튼
+  try{ my_result(); }  catch(err){ var res = result.value; result.value = '입력오류'; }
+});
+</script>
+</body>
+</html>

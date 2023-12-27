@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트06 - 조건문</title>
+</head>
+<body>
+    <ul class="lst">
+        <li class="jumsu">80</li>
+        <li class="jumsu">90</li>
+        <li class="jumsu">75</li>
+        <li class="jumsu">85</li>
+        <li class="jumsu">100</li>
+    </ul>
+    <div id="tot"></div>
+    <div id="avg"></div>
+    <div id="pan"></div>
+    <div id="hak"></div>
+    <div id="remark"></div>
+    <div id="sisang"></div>
+    <script>
+    var arr = [0, 0, 0, 0, 0];
+    //var score = document.querySelector(".lst .jumsu");
+    var jum = document.getElementsByClassName("jumsu"); //배열 5개
+    var tot = 0;
+    var avg = 0.0;
+    var pan, hak, remark, sisang;
+
+    //총점 계산
+    for(var i=0;i<jum.length;i++){
+        tot = tot + parseInt(jum[i].innerHTML);
+        arr[i] = parseInt(jum[i].innerHTML);
+    }
+    var t = document.getElementById("tot");
+    t.innerHTML = "총점 : "+tot;
+    
+    //평균 계산
+    avg = tot / jum.length;
+    var a = document.getElementById("avg");
+    a.innerHTML = "평균 : "+avg;
+
+    //판정 : 모든 점수가 60점 이상이고, 평균이 60점 이상이면, "합격", 아니면 "불합격"
+    var p = document.getElementById("pan");
+    if(arr[0]>=60 && arr[1]>=60 && arr[2]>=60 && arr[3]>=60 && arr[4]>=60 && avg>=60) {
+        pan = "합격";
+    } else {
+        pan = "불합격";
+    }
+    p.innerHTML = "판정 : "+pan;
+    /*
+    if~
+    if~else~
+    if(조건식) {
+        조건식이 참일 때 실행문
+    } else {
+        조건식이 거짓일 때 실행문
+    }
+    */
+
+    /*
+    학점 계산 : 평균이 90점 이상이면, "A", 80점 이상이면, "B", 70점 이상이면, "C", 60점 이상이면, "D", 60점 미만이면, "F" */
+    var h = document.getElementById("hak");
+    if(avg>=90){
+        hak = "A";
+    } else if(avg>=80){
+        hak = "B";
+    } else if(avg>=70){
+        hak = "C";
+    } else if(avg>=60){
+        hak = "D";
+    } else {
+        hak = "F";
+    }
+    h.innerHTML = "학점 : "+hak;
+
+    /*
+    다단계 if(if~else if~else~)
+    if(조건식1) {
+        실행문1;
+    } else if(조건식2){
+        실행문2
+    ....
+    } else if(조건식n) {
+        실행문n
+    } else {
+        실행문;
+    }
+    */
+
+    /* 참고사항 : 학점이 "A"이면, "고득점자", "B"이면, "일반",
+    "C"이면, "노력", "D", "재평가", "F", "재평가"
+    */
+    var r = document.getElementById("remark");
+    switch(hak){
+        case "A":
+            remark = "고득점자";
+            break;
+        case "B":
+            remark = "일반";
+            break;
+        case "C":
+            remark = "노력";
+            break;
+        default:
+            remark = "재평가";    
+    }
+    r.innerHTML = "참고사항 : "+remark;
+
+    /* 시상내용 : 한 과목이라도 90점 이상이면, "과목우수"이고, 아니면, "해당없음"
+    */
+    var s = document.getElementById("sisang");
+    if(arr[0]>=90 || arr[1]>=90 || arr[2]>=90 || arr[3]>=90 || arr[4]>=90){
+        sisang = "과목우수";
+    } else {
+        sisang = "해당없음";
+    }
+    s.innerHTML = "시상내용 : "+sisang;
+    </script>
+</body>
+</html>

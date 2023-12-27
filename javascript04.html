@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트04 - 객체 그리고 함수</title>
+    <script>
+    //사용자 정의 객체
+    var man1 = {num:1, name:"김기태", style:"잘생김", jumsu:100}; //임의의 객체1
+    function Animal(name, age, color){  //Constructor(생성자)
+        this.name = name;
+        this.age = age;
+        this.color = color;
+        this.cry = function(sound){     //메소드
+            document.write(sound+"<br>");
+        }
+    }
+    var myCat = new Animal("양이", 5, "black"); //Animal클래로부터 얻어진 객체1
+    myCat.family = "페르시안";      //속성 추가
+    myCat.toString = function(){    //메소드 추가
+        document.write(this.name+", "+this.age+", "+this.color+this.family+"<br>");
+    };
+    for(var key in myCat){  //객체 순회
+        document.write(key+"<br>");
+    }
+    delete myCat.family;        //속성 제거
+
+    var myDog = new Animal("멍이", 6, "white");//Animal클래로부터 얻어진 객체2
+    
+    myCat.cry("야옹야옹");
+
+    document.write("번호 : "+man1.num+", 이름 : "+man1.name);
+
+    //사용자 정의 함수
+    function fnc1(){ //함수 선언 - 매개변수X, 리턴 X
+        document.write("함수1 호출<br>");
+    }
+    var fnc2 = function(x){ //함수 선언 - 매개변수O, 리턴X
+        document.write("함수2 호출<br>");
+        document.write(x+"를 입력하셨습니다.<br>");
+    }
+    function fnc3(){    //함수 선언 - 매개변수X, 리턴O
+        document.write("함수3 호출<br>");
+        var i = prompt("\n숫자를 입력하세요 : ");
+        return i;
+    }
+    function fnc4(x, y){  //함수 선언 - 매개변수O, 리턴O
+        document.write("함수 4 호출<br>");
+        return x+y;
+    }
+    var a = fnc4(20, 40);
+    var b = fnc3();
+    document.write(a);
+    document.write(b);
+    fnc2(40);
+    fnc1(); 
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

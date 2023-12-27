@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 08 - 데이터형 객체</title>
+</head>
+<body>
+    <div id="cal"></div>
+    <div id="clock"></div>
+    <button id="btn1">멈춤</button>
+    <div id="status"></div>
+    <script>
+    /*
+    내장 객체 :
+     1) BOM(Browser Object Model) : 브라우저를 제어할 목적으로 내장된 객체 - window, location, history, screen, navigator
+     2) DOM(Document Object Model) : 문서를 구성하는 요소(Element)인 태그를 제어할 목적으로 내장된 객체 - document
+     3) 데이터형(멀티데이터 포함) 객체 : 변수나 객체에 저장된 데이터를 가공하고, 처리하고, 변형할 수 있도록 한 내장 객체 - Number, Math, Date, String, Array, Audio, Video, File ...
+    */
+   //Number 관련 메소드    
+    var x = 456789.1234;
+    var y = 12345.6789;
+    var z = 0x2C;
+    document.write("<br>x를 2진수로 변환 : "+x.toString(2));
+    document.write("<br>y를 2진수로 변환 : "+y.toString(2));
+    document.write("<br>z를 2진수로 변환 : "+z.toString(2));
+    document.write("<br>x를 8진수로 변환 : "+x.toString(8));
+    document.write("<br>y를 8진수로 변환 : "+y.toString(8));
+    document.write("<br>z를 8진수로 변환 : "+z.toString(8));
+    document.write("<br>x를 10진수로 변환 : "+x.toString(10));
+    document.write("<br>y를 10진수로 변환 : "+y.toString(10));
+    document.write("<br>z를 10진수로 변환 : "+z.toString(10));
+    document.write("<br>x를 16진수로 변환 : "+x.toString(16));
+    document.write("<br>y를 16진수로 변환 : "+y.toString(16));
+    document.write("<br>z를 16진수로 변환 : "+z.toString(16));
+
+    //전역 관련 Number 메소드
+    var a = "kim";
+    var b = "1234";
+    var c = 0;
+    var d = 50;
+    var e;
+    var f = "12.54";
+    var o = "12.34";
+    var k = "13 + 15 / 20 + d";
+    document.write("<br>b / d : "+(b/d)+" : "+Number.isInteger(b/d));
+    document.write("<br>a / d : "+(a/d)+" : "+Number.isNaN(a/d));
+    document.write("<br>c / d : "+(c/d));
+    document.write("<br>d / c : "+(d/c)+" : "+Number.isFinite(d/c));
+    document.write("<br>e / d : "+(e/d)+" : "+isNaN(e/d));
+    g = Number.parseInt(b);
+    document.write("<br>"+(typeof b)+", b 숫자로 변환"+g+" : "+(typeof g));
+    h = Number.parseFloat(f);
+    document.write("<br>"+(typeof f)+", f 숫자로 변환"+h+" : "+(typeof h));
+    i = Number(f);
+    document.write("<br>"+(typeof f)+", f 숫자로 변환"+i+" : "+(typeof i));
+    j = eval(f);
+    document.write("<br>"+(typeof f)+", f 숫자로 변환"+j+" : "+(typeof j));
+    l = Number(k);
+    document.write("<br>"+(typeof k)+", k 변환"+l+" : "+(typeof l));
+    m = eval(k);
+    document.write("<br>"+(typeof k)+", k 변환"+m+" : "+(typeof m));
+
+    //Math 객체 관련 메소드 - 반드시 앞에 Math가 붙여야 함
+    var arr1 = [20, 80, 90, 70, 100, 10, 15];
+    document.write("<br> 최소값 : "+Math.min(20, 80, 90, 70, 100, 10, 15));
+    document.write("<br> 최대값 : "+Math.max(20, 80, 90, 70, 100, 10, 15));
+    document.write("<br> 임의의 수 : "+Math.random());
+    var n = Number(f);
+    var p = Number(o);
+    document.write("<br> 반올림1 : "+Math.round(n));
+    document.write("<br> 반올림2 : "+Math.round(p));
+    document.write("<br> 올림1 : "+Math.ceil(n));
+    document.write("<br> 올림2 : "+Math.ceil(p));
+    document.write("<br> 내림1 : "+Math.floor(n));
+    document.write("<br> 내림2 : "+Math.floor(p));
+    document.write("<br> sin 30도 : "+Math.sin(30));
+    document.write("<br> cos 30도 : "+Math.cos(30));
+    document.write("<br> tan 30도 : "+Math.tan(30));
+    document.write("<br> -236의 절대값 : "+Math.abs(-236));
+    document.write("<br> 루트(제곱근) 81의 값 : "+Math.sqrt(81));
+    document.write("<br> 81의 세제곱근의 값 : "+Math.cbrt(81));
+    document.write("<br> 9의 4승 값 : "+Math.pow(9,4));
+
+    //Date 객체 관련 메소드
+    date1 = new Date();    //오늘 날짜
+    document.write("<br>오늘 날짜 : "+date1);
+    document.write("<br>연도 : "+date1.getFullYear());
+    document.write("<br>월 : "+(date1.getMonth()+1));  //0~11
+    w = ["일","월","화","수","목","금","토"];
+    document.write("<br>요일번호 : "+(date1.getDay())+", 요일 : "+w[date1.getDay()]);  //0~6
+    document.write("<br>일 : "+(date1.getDate()));  
+    document.write("<br>시 : "+(date1.getHours())); 
+    document.write("<br>분 : "+(date1.getMinutes()));
+    document.write("<br>초 : "+(date1.getSeconds()));
+
+    function abc() {
+        date2 = new Date();
+        var today = ""+date2.getFullYear() + "-" + (date2.getMonth()+1) + "-" + date2.getDate() + "("+w[date1.getDay()]+")";
+        var now = ""+date2.getHours()+":"+date2.getMinutes()+":"+date2.getSeconds();
+        var cal = document.getElementById("cal");
+        var clock = document.getElementById("clock");
+        cal.innerHTML = "<br>오늘 날짜 : "+today;  
+        clock.innerHTML ="<br>현재 시각 : "+now;
+    }
+
+    //타이머 객체 = 전역객체
+    var intv = setInterval(function(){ abc(); }, 1000);
+    var btn1 = document.getElementById("btn1");
+    var sw = true;
+    btn1.addEventListener("click", function(){
+        if(sw) {        //스위칭 기법
+            clearInterval(intv);
+            btn1.innerText = "출발";
+        } else {
+            intv = setInterval(function(){ abc(); }, 1000);
+            btn1.innerText = "멈춤";
+        }
+        sw = !sw;
+    });
+    function bcd() {
+        document.getElementById("status").innerHTML = "타임아웃";
+    }
+    setTimeout(function(){ bcd(); }, 2000); 
+
+
+    //String 객체 관련 메소드
+    var str1 = "나는 김기태 입니다.";
+    var str2 = "기브앤태그라고도\n 합니다.";
+    var str3 = "my Name is gitae, Kim";
+    var str4 = "i'm a dolsing";
+    document.write("<br>str1의 글자수 : "+str1.length);
+    document.write("<br>"+String.fromCharCode(75,66,65)); //아스키코드(0~127)
+    document.write("<br>"+String.fromCodePoint(75,66,65));
+    document.write("<br>김의 인덱스 : "+str1.indexOf("김")); //※ 위치 찾기
+    document.write("<br>공의 인덱스 : "+str1.indexOf("공"));
+    document.write("<br>i의 인덱스 : "+str3.indexOf("i"));
+    document.write("<br>i의 뒤에서부터의 인덱스 : "+str3.lastIndexOf("i"));
+    document.write("<br>특정 위치의 글자 : "+str1.charAt(5));
+    document.write("<br>몇 번째부터 몇 번째까지 글자 추출 : "+str2.slice(1,5));
+    document.write("<br>몇 번째부터 몇 번째까지 글자 추출 : "+str2.slice(-5,-2));
+    document.write("<br>몇 번째부터 몇 번째까지 글자 추출 : "+str2.substring(1,5)); //※시작값, 종료값
+    document.write("<br>몇 번째부터 몇 번째까지 글자 추출 : "+str2.substr(1,5)); //※시작값, 글자수
+    str3.split(" ");
+    //str3[0], str3[1],....str3[4]
+    str5 = "    몰라 ";
+    str6 = str5.concat("   Verry, ", "   Nice");
+    document.write("<br>분리하기 : "+str6); 
+    document.write("<br>대문자로 : "+str3.toUpperCase());
+    document.write("<br>소문자로 : "+str3.toLowerCase());
+    document.write("<br>앞뒤의 공백제거 : "+str6.trim());
+    str7 = str6.replace("몰라", "알아");
+    document.write("<br>찾아 바꾸기 : "+str7); 
+    document.write("<br>알아 위치찾기 : "+str7.search("알아")); 
+    //문자열에 대한 찾기의 경우는 search를 쓰시오.
+    document.write("<br>몰라 위치찾기 : "+str7.search("몰라"));
+    //※배열과 같은 집합체에서는 match를 쓰시오.
+    fnd = str7.match("몰라"); 
+    document.write("<br>알아 위치찾기 : "+fnd);
+    str8 = str7.repeat(2);
+    document.write("<br>반복 : "+str8);
+    </script>
+</body>
+</html>

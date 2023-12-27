@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 응용 - 디지털 시계 만들기</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+KR" rel="stylesheet">
+    <style>
+/*    font-family: 'Anton', sans-serif;
+font-family: 'Noto Sans KR', sans-serif; */    
+    * { margin: 0; padding: 0; }
+    body, html { width: 100%; font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; }
+    ul { list-style: none;  }    
+    a { text-decoration: none; }    
+    .page { clear:both; position:relative; width: 100vw; height: 100vh; }    
+    .clr { clear:both; }
+    .clr:after { content:""; clear:both; display:block;  }    
+    .page_tit { font-size:42px; text-align:center; line-height: 3; padding-top: 1em;  } 
+    .vs { clear:both; width: 100%; height: auto; }
+    .vs img { display:block; width: 100%; height: auto; }    
+    #watch { font-family: 'Anton', sans-serif; font-size:100px; height: 240px; line-height:240px; 
+        text-align:center; background-color:rgba(219, 129, 22, 0.7); color:#333; position:absolute; 
+        bottom: 0; width: 100%; left: 0; }    
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <section class="page clr" id="page1">
+        <h2 class="page_tit">페이지 제목1</h2>    
+        <figure class="vs">
+            <img src="https://placehold.it/1400x300/936" alt="배너">
+        </figure>
+        <div id="watch"></div>
+        <script>
+        watching();    
+        function watching() {
+            var watch = document.getElementById("watch");
+            var time1 = new Date();
+            var hh = time1.getHours();
+            var mm = time1.getMinutes();
+            var ss = time1.getSeconds();
+            var ampm = "AM";
+            if(hh>=12) { ampm="PM"; }
+            if(hh>12) { hh=hh-12; }
+            if(hh<10) { hh="0"+hh; }
+            if(mm<10) { mm="0"+mm; }
+            if(ss<10) { ss="0"+ss; }
+            watch.innerHTML = ampm+" "+hh+":"+mm+":"+ss;
+        }    
+        setInterval(function(){ watching(); }, 1000);    
+        </script>
+    </section>
+    <section class="page clr" id="page2">
+        <h2 class="page_tit">페이지 제목2</h2>    
+        
+    </section>
+</div>
+</body>
+</html>

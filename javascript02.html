@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 02 - 화면 입출력</title>
+    <script>
+    var num1 = parseInt(prompt("숫자 1 입력 : "));  //값을 입력 받을 때는 prompt함수 사용
+    var num2 = parseInt(prompt("숫자 2 입력 : "));
+    if(num1>num2){
+        alert("num1이 num2보다 큽니다.");   //알림창은 alert함수 사용
+    } else if(num1<num2){
+        alert("num2가 num1보다 큽니다.");
+    } else {
+        alert("num1과 num2가 같습니다.");
+    }
+    </script>
+</head>
+<body>
+    <div class="con">문서 내용</div>
+    <script>
+    var res = confirm("자바스크립트 잘 이해되시나요?"); //확인(예)/취소(아니오)
+    if(res){
+        alert("참 다행입니다.");
+    } else {
+        alert("안타깝습니다. 따라 치지 말고, 공부 하세요~!");
+    }
+    </script>
+</body>
+</html>

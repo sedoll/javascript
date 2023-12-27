@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+    <meta name="author" content="kim">
+    <style>
+    @font-face {
+        font-family: "digital";
+        src: url("digital-7.ttf");
+    }    
+    @font-face {
+        font-family: "digitalix";
+        src: url("digitalix.ttf");
+    }    
+    @font-face{     
+        font-family: "dsdigi";
+        src: url("DS-DIGI.TTF");
+    }
+    </style>
+<style>
+ul { list-style: none; }    
+.tit { font-size: 32px; text-align:center; }
+.cal_fr { width: 420px;  margin: 20px auto; padding:10px; background: #8fcbbf; 
+border-radius:15px; height: 500px; 
+box-shadow:1px 1px 1px #527a71, 2px 2px 2px #3e6159, 3px 3px 3px #31544d, -1px -1px 1px #a3d7cd, -2px -2px 2px #c8e8e2;}
+.cal_fr li { padding-right:5px; float:left;  text-align: center; 
+    padding-top: 5px;  }
+.cal_fr li > input#result {   border: none;  background: #333; color: white;
+  text-align:right;  font-size:78px; display:block;  width: 401px; 
+  height:90px;  padding-right: 10px; 
+  font-family:"dsdigi", sans-serif; 
+  box-shadow:-1px -1px 1px #666, -2px -2px 2px #888, 1px 1px 1px #666, 2px 2px 2px #888; }
+.cal_fr li > .btn {   display:block; height:inherit;  color:#333; 
+    font-size:36px;  border: none; background-color:#a4d0c7; width:100px; height: 75px; 
+  line-height: 75px; text-align: center; border-radius:9px; color:#f1f1f1; cursor:pointer;  
+    box-shadow:1px 1px 1px #77938d, 2px 2px 2px #647c77; }
+.cal_fr li #result_btn { background-color: #f5b62d; } 
+.cal_fr li > .btn:hover {   background: #999; }
+.cal_fr li > .btn.col2 { width: 205px; }
+.cal_fr li:nth-child(4n+1) > .btn { 	background:#176f74; color:white;  }
+</style>	
+</head>
+<body>
+<div class="wrap">
+    <h2 class="tit">계산기</h2>
+    <ul class="cal_fr">
+        <li class="full_wd">
+            <input type="text" id="result" value="0">
+        </li>  
+        <li><input type="button" class="btn" value="7" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="8" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="9" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="+" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="4" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="5" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="6" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="-" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="1" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="2" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="3" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="*" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn col2" value="0" id="zero_btn" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="%" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn" value="/" onclick="calc(this.value);"></li>
+        <li><input type="button" class="btn col2" id="cls_btn" value="clear" onclick="clr()"></li>
+        <li><input type="button" class="btn col2" id="result_btn" value="=" onclick="my_result();"></li>    
+    </ul>
+</div>
+<script>
+var result = document.getElementById('result');
+function clr(){  result.value = 0;   }  // 계산기 초기화(clear)
+function calc(data){   // 계산기 입력 처리 함수
+  if(result.value == 0){ result.value = ''; } // 입력이 들어가면 0을 지움
+  result.value += data; // 입력값을 결과창에 출력
+}
+function my_result(){ // 계산 결과 처리 함수
+  var calc = eval(result.value);  
+  result.value = calc;   //결과창에 표시
+}
+</script>
+</body>
+</html>
